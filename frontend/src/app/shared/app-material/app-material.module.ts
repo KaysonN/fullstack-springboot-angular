@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card';
-
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -13,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatToolbarModule,
     MatCardModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AppMaterialModule { }

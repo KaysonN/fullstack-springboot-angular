@@ -1,3 +1,11 @@
 table {
   width: 100%;
 }
+
+.loading-spinner {
+  padding: 30px;
+  background: rgb(236, 233, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

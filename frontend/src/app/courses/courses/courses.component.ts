@@ -10,13 +10,18 @@ import { Observable } from 'rxjs';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-
-  courses: Observable<Course[]>;
+  showSpinner: boolean = false;
+  courses$: Observable<Course[]>;
   displayedColumns = ['name', 'category'];
 
-
   constructor(private coursesService: CoursesService) {
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list();
+  }
+
+  spinn() {
+    this.coursesService.list().subscribe(data => {
+
+    })
   }
 
   ngOnInit(): void {
