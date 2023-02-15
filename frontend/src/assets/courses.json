@@ -2,7 +2,7 @@
   {
     "_id": "1",
     "name": "Angular",
-    "description": "Angular 2"
+    "description": "front-end"
   },
   {
     "_id": "2",
@@ -12,6 +12,6 @@
   {
     "_id": "3",
     "name": "HTML",
-    "description": "WEB"
+    "description": "back-end"
   }
 ]
