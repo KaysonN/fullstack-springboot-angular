@@ -24,10 +24,5 @@ public class CourseController {
 		return courseRepository.findAll();
 	}
 	
-	@GetMapping("/{id}/course")
-	public Optional<Course> getCourse(@PathVariable Long id) {
-		return courseRepository.findById(id);
-	}
-	
 	
 }

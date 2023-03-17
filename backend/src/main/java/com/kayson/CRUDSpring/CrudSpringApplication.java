@@ -17,6 +17,7 @@ public class CrudSpringApplication {
 	
 	@Bean
 	CommandLineRunner testInit(CourseRepository courseRepository) {
+		System.out.println("rodou isso");
 		return args -> {
 			courseRepository.deleteAll();
 			Course c = new Course();
