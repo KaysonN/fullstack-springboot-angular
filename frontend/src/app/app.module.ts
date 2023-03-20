@@ -6,11 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CourseFormComponent } from './courses/course-form/course-form.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,

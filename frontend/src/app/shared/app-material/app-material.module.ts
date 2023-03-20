@@ -6,12 +6,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
 @NgModule({
   declarations: [],
   exports: [
+    MatButtonModule,
     CommonModule,
     MatTableModule,
     MatToolbarModule,
