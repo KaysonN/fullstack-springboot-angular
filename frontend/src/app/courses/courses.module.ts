@@ -6,6 +6,7 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { RouterModule } from '@angular/router';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AppMaterialModule } from '../shared/app-material/app-material.module';
     CoursesRoutingModule,
     RouterModule,
     AppMaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class CoursesModule { }
