@@ -19,4 +19,9 @@ export class CoursesService {
         console.log(courses)
       }));
   }
+
+  save(course: Course){
+    console.log(course)
+    return this.http.post<Course>(this.API, course).pipe(first());
+  }
 }
