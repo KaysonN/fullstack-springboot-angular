@@ -8,12 +8,12 @@ import { Course } from '../model/course';
 })
 export class CoursesService {
 
-  private readonly API = "api/courses/list";
+  private readonly API = "api/courses";
 
   constructor(private http: HttpClient) { }
 
   list() {
-    return this.http.get<Course[]>(this.API).pipe(
+    return this.http.get<Course[]>(this.API+"/list").pipe(
       first(),
       tap(courses => {
         console.log(courses)
@@ -22,6 +22,6 @@ export class CoursesService {
 
   save(course: Course){
     console.log(course)
-    return this.http.post<Course>(this.API, course).pipe(first());
+    return this.http.post<Course>(this.API+"/new", course).pipe(first());
   }
 }
