@@ -1,7 +1,7 @@
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { CoursesService } from '../services/courses.service';
 import { Location } from '@angular/common';
 
@@ -12,18 +12,19 @@ import { Location } from '@angular/common';
 })
 export class CourseFormComponent implements OnInit {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    name: new FormControl('', {nonNullable: true}),
+    description: ['']
+  });
 
-  constructor(private formBuilder: FormBuilder, private service: CoursesService, private location:  Location) {
-    this.form = this.formBuilder.group({
-      name: [null],
-      description: [null]
-    });
+  constructor(private formBuilder: NonNullableFormBuilder, private service: CoursesService, private location:  Location) {
+
 
     console.log('Ola' + this.form)
   }
 
   ngOnInit(): void {
+    this.form.value.description;
   }
 
   onSubmit() {

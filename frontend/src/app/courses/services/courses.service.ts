@@ -13,15 +13,20 @@ export class CoursesService {
   constructor(private http: HttpClient) { }
 
   list() {
-    return this.http.get<Course[]>(this.API+"/list").pipe(
+    return this.http.get<Course[]>(this.API + "/list").pipe(
       first(),
       tap(courses => {
         console.log(courses)
       }));
   }
 
-  save(course: Course){
+  save(course: Partial<Course>) {
     console.log(course)
-    return this.http.post<Course>(this.API+"/new", course).pipe(first());
+    return this.http.post<Course>(this.API + "/new", course).pipe(first());
+  }
+
+  delete(id: number) {
+    alert(this.API + `/delete/${id}`);
+    return this.http.delete(this.API + `/delete/${id}`);
   }
 }
