@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap, first, delay } from 'rxjs';
+import { tap, first, delay, Observable } from 'rxjs';
 import { Course } from '../model/course';
 
 @Injectable({
@@ -20,13 +20,20 @@ export class CoursesService {
       }));
   }
 
-  save(course: Partial<Course>) {
+  getCourseById(id: number): Observable<Course> {
+    return this.http.get<Course>(`${this.API}/${id}`);
+  }
+
+  create(course: Partial<Course>) {
     console.log(course)
     return this.http.post<Course>(this.API + "/new", course).pipe(first());
   }
 
-  delete(id: number) {
-    alert(this.API + `/delete/${id}`);
-    return this.http.delete(this.API + `/delete/${id}`);
+  update(id: number, course: Course): Observable<Course> {
+    return this.http.put<Course>(`${this.API}/${id}`, course);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.API}/${id}`, { responseType: 'text' });
   }
 }

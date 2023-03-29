@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { CoursesService } from '../services/courses.service';
 import { Location } from '@angular/common';
+import { Course } from '../model/course';
 
 @Component({
   selector: 'app-course-form',
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./course-form.component.css']
 })
 export class CourseFormComponent implements OnInit {
-
+  courses: Course[] = [];
   form = this.formBuilder.group({
     name: new FormControl('', {nonNullable: true}),
     description: ['']
@@ -28,7 +29,7 @@ export class CourseFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value).subscribe({
+    this.service.create(this.form.value).subscribe({
       next: (data) => console.log(data),
     });
     this.location.back();
@@ -37,4 +38,11 @@ export class CourseFormComponent implements OnInit {
   onCancel() {
     this.location.back();
   }
+
+  deleteCourse(_id: number): void {
+    this.service.delete(_id).subscribe(() => {
+      this.courses = this.courses.filter(course => course._id != "");
+    });
+  }
+
 }
