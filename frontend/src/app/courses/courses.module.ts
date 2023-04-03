@@ -7,10 +7,12 @@ import { CoursesComponent } from './courses/courses.component';
 import { RouterModule } from '@angular/router';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CoursesListComponent } from './courses-list/courses-list.component';
 
 @NgModule({
   declarations: [
-    CoursesComponent
+    CoursesComponent,
+    CoursesListComponent
   ],
   imports: [
     CommonModule,

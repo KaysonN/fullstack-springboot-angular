@@ -15,7 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CoursesComponent implements OnInit {
   showSpinner: boolean = false;
   courses$: Observable<Course[]>;
-  displayedColumns = ['name', 'description', 'actions'];
 
   constructor(private coursesService: CoursesService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) {
     this.courses$ = this.coursesService.list()
