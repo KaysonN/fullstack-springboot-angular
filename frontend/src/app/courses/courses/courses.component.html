@@ -6,7 +6,11 @@
       <mat-toolbar color="primary">
         <span>Cursos Disponíveis</span>
       </mat-toolbar>
-      <app-courses-list *ngIf="courses$ | async as courses; else loading" [course]="courses">
+      <app-courses-list
+        *ngIf="courses$ | async as courses; else loading"
+        [course]="courses"
+        (add)="onAdd()"
+        >
       </app-courses-list>
 
       <ng-template #loading>

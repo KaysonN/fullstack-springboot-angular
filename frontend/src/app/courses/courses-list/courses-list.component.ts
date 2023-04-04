@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CoursesService } from '../services/courses.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,16 +15,17 @@ export class CoursesListComponent {
 
   showSpinner: boolean = false;
 
-  @Input() course: Course[] = []
+  @Input() course: Course[] = [];
+  @Output() add = new EventEmitter(false);
   readonly displayedColumns = ['name', 'description', 'actions'];
 
-
-  constructor(private router: Router, private route: ActivatedRoute) {
+//private router: Router, private route: ActivatedRoute
+  constructor() {
 
   }
 
   onAdd() {
-    this.router.navigate(['new'], { relativeTo: this.route })
+    this.add.emit(true);
   }
 
   onEdit() {
